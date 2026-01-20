@@ -1,5 +1,14 @@
 name: embedding_gemma
-description: A new Flutter project.
+description: >
+  A FlutterFlow library that transforms text documents into intelligent 
+  vector embeddings using Google's Gemma models for on-device machine 
+  learning. It processes documents into semantic vector representations, 
+  stores them locally in SQLite, and enables advanced similarity-based search 
+  and retrieval without requiring cloud services or API calls. The app 
+  provides a complete RAG (Retrieval-Augmented Generation) pipeline with 
+  model downloading, embedding generation, vector storage, and semantic 
+  search capabilities, all running entirely on the user's device for privacy 
+  and offline functionality. 
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
