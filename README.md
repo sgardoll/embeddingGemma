@@ -4,6 +4,8 @@
 
 This library enables **on-device text embeddings** using Google's Gemma model for RAG (Retrieval-Augmented Generation) capabilities in FlutterFlow apps.
 
+![tmpmotg68ar](https://github.com/user-attachments/assets/40337c57-e1fa-457e-9d25-7d81c5a8b5d3)
+
 ---
 
 ## Architecture Flowchart
