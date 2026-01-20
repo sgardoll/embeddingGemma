@@ -21,7 +21,7 @@ class SQLiteManager {
     }
     _database = await initializeDatabaseFromDbFile(
       'embeddings',
-      'vectorDatabase.db',
+      'embeddings.db',
     );
   }
 
