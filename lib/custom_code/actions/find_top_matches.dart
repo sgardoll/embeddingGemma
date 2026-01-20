@@ -17,12 +17,14 @@ Future<List<VectorDocumentStruct>> findTopMatches(
   String query,
   List<VectorDocumentStruct> documents,
   int? topK,
+  double threshold,
 ) async {
   if (query.trim().isEmpty || documents.isEmpty) {
     return [];
   }
 
   final int limit = topK ?? 5;
+  // Cosine similarity: 1.0 = identical, 0.0 = orthogonal, -1.0 = opposite
   final embedder = GemmaEmbedderWrapper.instance;
 
   // 1. Generate embedding for the query string
@@ -49,11 +51,16 @@ Future<List<VectorDocumentStruct>> findTopMatches(
     });
   }
 
-  // 3. Sort by score descending (highest similarity first)
+  // 3. Filter out results below threshold (irrelevant matches)
+  scoredDocuments = scoredDocuments
+      .where((entry) => (entry['score'] as double) >= threshold)
+      .toList();
+
+  // 4. Sort by score descending (highest similarity first)
   scoredDocuments
       .sort((a, b) => (b['score'] as double).compareTo(a['score'] as double));
 
-  // 4. Return top K results
+  // 5. Return top K results
   return scoredDocuments
       .take(limit)
       .map((entry) => entry['doc'] as VectorDocumentStruct)

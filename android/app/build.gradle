@@ -30,7 +30,7 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     namespace "com.mycompany.embeddinggemma"
-    compileSdkVersion 35
+    compileSdkVersion 36
     
 
     compileOptions {
@@ -55,8 +55,8 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.mycompany.embeddinggemma"
-        minSdkVersion 23
-        targetSdkVersion 35
+        minSdkVersion 36
+        targetSdkVersion 36
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
@@ -87,4 +87,8 @@ flutter {
 dependencies {
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:2.1.0"
+		// core_ktx
+		// Force older core-ktx to avoid SDK 36 requirement
+implementation "androidx.core:core-ktx:1.12.0"
+
 }

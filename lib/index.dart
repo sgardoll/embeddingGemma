@@ -1,3 +1,6 @@
 // Export pages
-export '/pages/embedding_gemma/embedding_gemma_widget.dart'
-    show EmbeddingGemmaWidget;
+export '/demo/generate_embeddings/generate_embeddings_widget.dart'
+    show GenerateEmbeddingsWidget;
+export '/demo/search/search_widget.dart' show SearchWidget;
+export '/demo/start_download/start_download_widget.dart'
+    show StartDownloadWidget;
