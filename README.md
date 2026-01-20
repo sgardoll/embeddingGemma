@@ -55,7 +55,7 @@ flowchart TB
 | `vector` | List&lt;double&gt; | Embedding vector (768 dimensions for Gemma) |
 | `metadata` | String | Optional metadata (e.g., source, category) |
 
-**Create in FlutterFlow:** Data Types > Add Data Type > VectorDocumentStruct
+**Imported automatically in FlutterFlow Library** 
 
 ---
 
