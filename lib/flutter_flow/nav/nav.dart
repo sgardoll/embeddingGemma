@@ -36,17 +36,27 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
-      errorBuilder: (context, state) => EmbeddingGemmaWidget(),
+      errorBuilder: (context, state) => StartDownloadWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => EmbeddingGemmaWidget(),
+          builder: (context, _) => StartDownloadWidget(),
         ),
         FFRoute(
-          name: EmbeddingGemmaWidget.routeName,
-          path: EmbeddingGemmaWidget.routePath,
-          builder: (context, params) => EmbeddingGemmaWidget(),
+          name: GenerateEmbeddingsWidget.routeName,
+          path: GenerateEmbeddingsWidget.routePath,
+          builder: (context, params) => GenerateEmbeddingsWidget(),
+        ),
+        FFRoute(
+          name: SearchWidget.routeName,
+          path: SearchWidget.routePath,
+          builder: (context, params) => SearchWidget(),
+        ),
+        FFRoute(
+          name: StartDownloadWidget.routeName,
+          path: StartDownloadWidget.routePath,
+          builder: (context, params) => StartDownloadWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

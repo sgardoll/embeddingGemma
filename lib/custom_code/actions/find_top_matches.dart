@@ -4,7 +4,6 @@ import '/backend/sqlite/sqlite_manager.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom actions
-import '/flutter_flow/custom_functions.dart'; // Imports custom functions
 import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
@@ -18,12 +17,14 @@ Future<List<VectorDocumentStruct>> findTopMatches(
   String query,
   List<VectorDocumentStruct> documents,
   int? topK,
+  double threshold,
 ) async {
   if (query.trim().isEmpty || documents.isEmpty) {
     return [];
   }
 
   final int limit = topK ?? 5;
+  // Cosine similarity: 1.0 = identical, 0.0 = orthogonal, -1.0 = opposite
   final embedder = GemmaEmbedderWrapper.instance;
 
   // 1. Generate embedding for the query string
@@ -50,11 +51,16 @@ Future<List<VectorDocumentStruct>> findTopMatches(
     });
   }
 
-  // 3. Sort by score descending (highest similarity first)
+  // 3. Filter out results below threshold (irrelevant matches)
+  scoredDocuments = scoredDocuments
+      .where((entry) => (entry['score'] as double) >= threshold)
+      .toList();
+
+  // 4. Sort by score descending (highest similarity first)
   scoredDocuments
       .sort((a, b) => (b['score'] as double).compareTo(a['score'] as double));
 
-  // 4. Return top K results
+  // 5. Return top K results
   return scoredDocuments
       .take(limit)
       .map((entry) => entry['doc'] as VectorDocumentStruct)
