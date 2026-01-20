@@ -9,10 +9,42 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-/// This custom action takes a list of raw text strings (e.g., from a parsed
-/// PDF or user notes), converts them to vectors, and returns the list of
-/// Structs (custom FlutterFlow data types)
+import '../gemma_embedder_wrapper.dart';
+
 Future<List<VectorDocumentStruct>> processDocumentsToVectors(
-    List<String> rawTexts) async {
-  // Add your function code here!
+  List<String> documents,
+) async {
+  // Initialize the list to hold the structured vector data
+  List<VectorDocumentStruct> vectorDocuments = [];
+
+  // Access the singleton wrapper
+  final embedder = GemmaEmbedderWrapper.instance;
+
+  for (String docText in documents) {
+    if (docText.trim().isEmpty) continue;
+
+    try {
+      // Generate embedding for the current document
+      final List<double> embedding = await embedder.getEmbedding(docText);
+
+      if (embedding.isNotEmpty) {
+        // Create the struct. Assuming 'id' is generated or not needed strictly for this step.
+        // You might want to generate a UUID here if your struct requires a unique ID.
+        final vectorDoc = VectorDocumentStruct(
+          id: DateTime.now()
+              .millisecondsSinceEpoch
+              .toString(), // Simple ID generation
+          text: docText,
+          vector: embedding,
+          metadata: "Ingested via Gemma", // Optional metadata
+        );
+
+        vectorDocuments.add(vectorDoc);
+      }
+    } catch (e) {
+      print('Failed to process document: $docText. Error: $e');
+    }
+  }
+
+  return vectorDocuments;
 }

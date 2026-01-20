@@ -7,19 +7,21 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class VectorDocumentStruct extends BaseStruct {
   VectorDocumentStruct({
-    String? content,
+    String? text,
     List<double>? vector,
+    String? id,
     String? metadata,
-  })  : _content = content,
+  })  : _text = text,
         _vector = vector,
+        _id = id,
         _metadata = metadata;
 
-  // "content" field.
-  String? _content;
-  String get content => _content ?? '';
-  set content(String? val) => _content = val;
+  // "text" field.
+  String? _text;
+  String get text => _text ?? '';
+  set text(String? val) => _text = val;
 
-  bool hasContent() => _content != null;
+  bool hasText() => _text != null;
 
   // "vector" field.
   List<double>? _vector;
@@ -32,6 +34,13 @@ class VectorDocumentStruct extends BaseStruct {
 
   bool hasVector() => _vector != null;
 
+  // "id" field.
+  String? _id;
+  String get id => _id ?? '';
+  set id(String? val) => _id = val;
+
+  bool hasId() => _id != null;
+
   // "metadata" field.
   String? _metadata;
   String get metadata => _metadata ?? '';
@@ -41,8 +50,9 @@ class VectorDocumentStruct extends BaseStruct {
 
   static VectorDocumentStruct fromMap(Map<String, dynamic> data) =>
       VectorDocumentStruct(
-        content: data['content'] as String?,
+        text: data['text'] as String?,
         vector: getDataList(data['vector']),
+        id: data['id'] as String?,
         metadata: data['metadata'] as String?,
       );
 
@@ -51,21 +61,26 @@ class VectorDocumentStruct extends BaseStruct {
       : null;
 
   Map<String, dynamic> toMap() => {
-        'content': _content,
+        'text': _text,
         'vector': _vector,
+        'id': _id,
         'metadata': _metadata,
       }.withoutNulls;
 
   @override
   Map<String, dynamic> toSerializableMap() => {
-        'content': serializeParam(
-          _content,
+        'text': serializeParam(
+          _text,
           ParamType.String,
         ),
         'vector': serializeParam(
           _vector,
           ParamType.double,
           isList: true,
+        ),
+        'id': serializeParam(
+          _id,
+          ParamType.String,
         ),
         'metadata': serializeParam(
           _metadata,
@@ -75,8 +90,8 @@ class VectorDocumentStruct extends BaseStruct {
 
   static VectorDocumentStruct fromSerializableMap(Map<String, dynamic> data) =>
       VectorDocumentStruct(
-        content: deserializeParam(
-          data['content'],
+        text: deserializeParam(
+          data['text'],
           ParamType.String,
           false,
         ),
@@ -84,6 +99,11 @@ class VectorDocumentStruct extends BaseStruct {
           data['vector'],
           ParamType.double,
           true,
+        ),
+        id: deserializeParam(
+          data['id'],
+          ParamType.String,
+          false,
         ),
         metadata: deserializeParam(
           data['metadata'],
@@ -99,20 +119,23 @@ class VectorDocumentStruct extends BaseStruct {
   bool operator ==(Object other) {
     const listEquality = ListEquality();
     return other is VectorDocumentStruct &&
-        content == other.content &&
+        text == other.text &&
         listEquality.equals(vector, other.vector) &&
+        id == other.id &&
         metadata == other.metadata;
   }
 
   @override
-  int get hashCode => const ListEquality().hash([content, vector, metadata]);
+  int get hashCode => const ListEquality().hash([text, vector, id, metadata]);
 }
 
 VectorDocumentStruct createVectorDocumentStruct({
-  String? content,
+  String? text,
+  String? id,
   String? metadata,
 }) =>
     VectorDocumentStruct(
-      content: content,
+      text: text,
+      id: id,
       metadata: metadata,
     );
