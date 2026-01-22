@@ -35,7 +35,11 @@ Progress: ██████████ 100%
 
 ## Deferred Issues
 
-None.
+### Pending Todos
+
+| Date | Title | Area |
+|------|-------|------|
+| 2026-01-22 | Fix TensorFlow XCFramework iOS simulator architecture mismatch | ios |
 
 ## Blockers/Concerns
 
