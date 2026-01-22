@@ -48,10 +48,11 @@ Before using the Custom Actions, complete these setup steps in FlutterFlow:
 ### Step 3: Add the Custom Actions
 
 Ensure these Custom Actions are added to your project:
-- `downloadEmbeddingModel`
+- `downloadEmbeddingModel` *(requires modelUrl AND tokenizerUrl)*
 - `processDocumentsToVectors`
 - `saveVectorsToDb`
 - `findTopMatches`
+- `initializeGemma` *(optional: call in main.dart)*
 
 ---
 
