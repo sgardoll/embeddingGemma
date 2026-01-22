@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 
 import 'index.dart'; // Imports other custom actions
 
+import 'index.dart'; // Imports other custom actions
+
 import 'dart:math' as math;
 import '../gemma_embedder_wrapper.dart';
 
@@ -45,10 +47,7 @@ Future<List<VectorDocumentStruct>> findTopMatches(
     if (doc.vector.isEmpty) continue;
 
     double score = _cosineSimilarity(queryVector, doc.vector);
-    scoredDocuments.add({
-      'doc': doc,
-      'score': score,
-    });
+    scoredDocuments.add({'doc': doc, 'score': score});
   }
 
   // 3. Filter out results below threshold (irrelevant matches)
@@ -57,8 +56,9 @@ Future<List<VectorDocumentStruct>> findTopMatches(
       .toList();
 
   // 4. Sort by score descending (highest similarity first)
-  scoredDocuments
-      .sort((a, b) => (b['score'] as double).compareTo(a['score'] as double));
+  scoredDocuments.sort(
+    (a, b) => (b['score'] as double).compareTo(a['score'] as double),
+  );
 
   // 5. Return top K results
   return scoredDocuments

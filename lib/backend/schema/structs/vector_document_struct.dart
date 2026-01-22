@@ -11,10 +11,10 @@ class VectorDocumentStruct extends BaseStruct {
     List<double>? vector,
     String? id,
     String? metadata,
-  })  : _text = text,
-        _vector = vector,
-        _id = id,
-        _metadata = metadata;
+  }) : _text = text,
+       _vector = vector,
+       _id = id,
+       _metadata = metadata;
 
   // "text" field.
   String? _text;
@@ -61,55 +61,30 @@ class VectorDocumentStruct extends BaseStruct {
       : null;
 
   Map<String, dynamic> toMap() => {
-        'text': _text,
-        'vector': _vector,
-        'id': _id,
-        'metadata': _metadata,
-      }.withoutNulls;
+    'text': _text,
+    'vector': _vector,
+    'id': _id,
+    'metadata': _metadata,
+  }.withoutNulls;
 
   @override
   Map<String, dynamic> toSerializableMap() => {
-        'text': serializeParam(
-          _text,
-          ParamType.String,
-        ),
-        'vector': serializeParam(
-          _vector,
-          ParamType.double,
-          isList: true,
-        ),
-        'id': serializeParam(
-          _id,
-          ParamType.String,
-        ),
-        'metadata': serializeParam(
-          _metadata,
-          ParamType.String,
-        ),
-      }.withoutNulls;
+    'text': serializeParam(_text, ParamType.String),
+    'vector': serializeParam(_vector, ParamType.double, isList: true),
+    'id': serializeParam(_id, ParamType.String),
+    'metadata': serializeParam(_metadata, ParamType.String),
+  }.withoutNulls;
 
   static VectorDocumentStruct fromSerializableMap(Map<String, dynamic> data) =>
       VectorDocumentStruct(
-        text: deserializeParam(
-          data['text'],
-          ParamType.String,
-          false,
-        ),
+        text: deserializeParam(data['text'], ParamType.String, false),
         vector: deserializeParam<double>(
           data['vector'],
           ParamType.double,
           true,
         ),
-        id: deserializeParam(
-          data['id'],
-          ParamType.String,
-          false,
-        ),
-        metadata: deserializeParam(
-          data['metadata'],
-          ParamType.String,
-          false,
-        ),
+        id: deserializeParam(data['id'], ParamType.String, false),
+        metadata: deserializeParam(data['metadata'], ParamType.String, false),
       );
 
   @override
@@ -133,9 +108,4 @@ VectorDocumentStruct createVectorDocumentStruct({
   String? text,
   String? id,
   String? metadata,
-}) =>
-    VectorDocumentStruct(
-      text: text,
-      id: id,
-      metadata: metadata,
-    );
+}) => VectorDocumentStruct(text: text, id: id, metadata: metadata);

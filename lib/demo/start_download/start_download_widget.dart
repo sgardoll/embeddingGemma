@@ -64,7 +64,9 @@ class _StartDownloadWidgetState extends State<StartDownloadWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
+
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+
         body: SafeArea(
           top: true,
           child: Padding(
@@ -72,10 +74,12 @@ class _StartDownloadWidgetState extends State<StartDownloadWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
+
               children: [
                 Flexible(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
+
                     children: [
                       // Opener Loading by RGB4Media on IconScout
                       // (https://iconscout.com/free-lottie-animation/free-opener-loading-animation_3162481)
@@ -85,57 +89,68 @@ class _StartDownloadWidgetState extends State<StartDownloadWidget> {
                         height: 200.0,
                         fit: BoxFit.contain,
                         frameRate: FrameRate(30.0),
+
                         animate: true,
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
+
                         children: [
                           Text(
                             'Downloading Model',
                             textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context)
-                                .headlineMedium
+
+                            style: FlutterFlowTheme.of(context).headlineMedium
                                 .override(
                                   font: GoogleFonts.interTight(
                                     fontWeight: FontWeight.w600,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .headlineMedium
-                                        .fontStyle,
+                                    fontStyle: FlutterFlowTheme.of(
+                                      context,
+                                    ).headlineMedium.fontStyle,
                                   ),
+
                                   fontSize: 28.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .headlineMedium
-                                      .fontStyle,
+                                  fontStyle: FlutterFlowTheme.of(
+                                    context,
+                                  ).headlineMedium.fontStyle,
                                 ),
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 0.0, 16.0, 0.0),
+                              16.0,
+                              0.0,
+                              16.0,
+                              0.0,
+                            ),
                             child: Text(
                               'We\'re downloading the embedding model. This may take a few minutes depending on your connection.',
                               textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyLarge
+
+                              style: FlutterFlowTheme.of(context).bodyLarge
                                   .override(
                                     font: GoogleFonts.inter(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyLarge
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyLarge
-                                          .fontStyle,
+                                      fontWeight: FlutterFlowTheme.of(
+                                        context,
+                                      ).bodyLarge.fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(
+                                        context,
+                                      ).bodyLarge.fontStyle,
                                     ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
+
+                                    color: FlutterFlowTheme.of(
+                                      context,
+                                    ).secondaryText,
+
                                     letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .fontStyle,
+                                    fontWeight: FlutterFlowTheme.of(
+                                      context,
+                                    ).bodyLarge.fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(
+                                      context,
+                                    ).bodyLarge.fontStyle,
+
                                     lineHeight: 1.4,
                                   ),
                             ),
@@ -147,17 +162,18 @@ class _StartDownloadWidgetState extends State<StartDownloadWidget> {
                           padding: EdgeInsets.all(16.0),
                           child: Container(
                             width: double.infinity,
-                            constraints: BoxConstraints(
-                              minHeight: 60.0,
-                            ),
+                            constraints: BoxConstraints(minHeight: 60.0),
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context).accent1,
+
                               borderRadius: BorderRadius.circular(12.0),
                             ),
+
                             child: Padding(
                               padding: EdgeInsets.all(12.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
+
                                 children: [
                                   Icon(
                                     Icons.info_outline,
@@ -167,31 +183,33 @@ class _StartDownloadWidgetState extends State<StartDownloadWidget> {
                                   Expanded(
                                     child: Text(
                                       'The model will be cached locally for faster performance in future sessions.',
+
                                       maxLines: 2,
+
                                       style: FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .override(
                                             font: GoogleFonts.inter(
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmall
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmall
-                                                      .fontStyle,
+                                              fontWeight: FlutterFlowTheme.of(
+                                                context,
+                                              ).bodySmall.fontWeight,
+                                              fontStyle: FlutterFlowTheme.of(
+                                                context,
+                                              ).bodySmall.fontStyle,
                                             ),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
+
+                                            color: FlutterFlowTheme.of(
+                                              context,
+                                            ).primaryText,
+
                                             letterSpacing: 0.0,
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodySmall
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodySmall
-                                                    .fontStyle,
+                                            fontWeight: FlutterFlowTheme.of(
+                                              context,
+                                            ).bodySmall.fontWeight,
+                                            fontStyle: FlutterFlowTheme.of(
+                                              context,
+                                            ).bodySmall.fontStyle,
+
                                             lineHeight: 1.3,
                                           ),
                                     ),
@@ -212,32 +230,40 @@ class _StartDownloadWidgetState extends State<StartDownloadWidget> {
                       context.pushNamed(GenerateEmbeddingsWidget.routeName);
                     },
                     text: 'Cancel Download',
+
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 48.0,
                       padding: EdgeInsets.all(8.0),
-                      iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+
+                      iconPadding: EdgeInsetsDirectional.fromSTEB(
+                        0.0,
+                        0.0,
+                        0.0,
+                        0.0,
+                      ),
+
                       color: FlutterFlowTheme.of(context).secondaryBackground,
-                      textStyle: FlutterFlowTheme.of(context)
-                          .titleSmall
+                      textStyle: FlutterFlowTheme.of(context).titleSmall
                           .override(
                             font: GoogleFonts.interTight(
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .fontStyle,
+                              fontWeight: FlutterFlowTheme.of(
+                                context,
+                              ).titleSmall.fontWeight,
+                              fontStyle: FlutterFlowTheme.of(
+                                context,
+                              ).titleSmall.fontStyle,
                             ),
+
                             color: FlutterFlowTheme.of(context).secondaryText,
+
                             letterSpacing: 0.0,
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .fontStyle,
+                            fontWeight: FlutterFlowTheme.of(
+                              context,
+                            ).titleSmall.fontWeight,
+                            fontStyle: FlutterFlowTheme.of(
+                              context,
+                            ).titleSmall.fontStyle,
                           ),
                       elevation: 0.0,
                       borderSide: BorderSide(

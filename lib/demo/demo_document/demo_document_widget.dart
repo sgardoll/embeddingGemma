@@ -7,10 +7,7 @@ import 'demo_document_model.dart';
 export 'demo_document_model.dart';
 
 class DemoDocumentWidget extends StatefulWidget {
-  const DemoDocumentWidget({
-    super.key,
-    this.input,
-  });
+  const DemoDocumentWidget({super.key, this.input});
 
   final String? input;
 
@@ -50,48 +47,57 @@ class _DemoDocumentWidgetState extends State<DemoDocumentWidget> {
       child: TextFormField(
         controller: _model.textController,
         focusNode: _model.textFieldFocusNode,
+
         autofocus: false,
+
         textCapitalization: TextCapitalization.sentences,
+
         readOnly: true,
         obscureText: false,
         decoration: InputDecoration(
           hintText: 'Enter document text...',
           hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                font: GoogleFonts.inter(
-                  fontWeight:
-                      FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                ),
-                letterSpacing: 0.0,
-                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-              ),
+            font: GoogleFonts.inter(
+              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+            ),
+
+            letterSpacing: 0.0,
+            fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+          ),
+
           enabledBorder: InputBorder.none,
           focusedBorder: InputBorder.none,
           errorBorder: InputBorder.none,
           focusedErrorBorder: InputBorder.none,
         ),
         style: FlutterFlowTheme.of(context).bodyMedium.override(
-              font: GoogleFonts.inter(
-                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-              ),
-              fontSize: 14.0,
-              letterSpacing: 0.0,
-              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-            ),
+          font: GoogleFonts.inter(
+            fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+            fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+          ),
+
+          fontSize: 14.0,
+          letterSpacing: 0.0,
+          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+          fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+        ),
+
         maxLines: 3,
         minLines: 1,
+
         keyboardType: TextInputType.multiline,
+
         validator: _model.textControllerValidator.asValidator(context),
         inputFormatters: [
           if (!isAndroid && !isiOS)
             TextInputFormatter.withFunction((oldValue, newValue) {
               return TextEditingValue(
                 selection: newValue.selection,
-                text: newValue.text
-                    .toCapitalization(TextCapitalization.sentences),
+                text: newValue.text.toCapitalization(
+                  TextCapitalization.sentences,
+                ),
               );
             }),
         ],

@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'index.dart'; // Imports other custom widgets
+
 /// A widget that generates embeddings from documents and saves them to
 /// SQLite.
 ///
@@ -146,8 +148,9 @@ class _GenerateEmbeddingsState extends State<GenerateEmbeddings> {
             style: ElevatedButton.styleFrom(
               backgroundColor: FlutterFlowTheme.of(context).primary,
               foregroundColor: FlutterFlowTheme.of(context).info,
-              disabledBackgroundColor:
-                  FlutterFlowTheme.of(context).secondaryBackground,
+              disabledBackgroundColor: FlutterFlowTheme.of(
+                context,
+              ).secondaryBackground,
             ),
             child: Text(
               _isProcessing ? 'Processing...' : 'Generate Embeddings',

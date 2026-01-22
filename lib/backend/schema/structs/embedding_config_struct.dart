@@ -6,11 +6,9 @@ import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 class EmbeddingConfigStruct extends BaseStruct {
-  EmbeddingConfigStruct({
-    String? modelUrl,
-    bool? isInitialized,
-  })  : _modelUrl = modelUrl,
-        _isInitialized = isInitialized;
+  EmbeddingConfigStruct({String? modelUrl, bool? isInitialized})
+    : _modelUrl = modelUrl,
+      _isInitialized = isInitialized;
 
   // "modelUrl" field.
   String? _modelUrl;
@@ -36,30 +34,18 @@ class EmbeddingConfigStruct extends BaseStruct {
       ? EmbeddingConfigStruct.fromMap(data.cast<String, dynamic>())
       : null;
 
-  Map<String, dynamic> toMap() => {
-        'modelUrl': _modelUrl,
-        'isInitialized': _isInitialized,
-      }.withoutNulls;
+  Map<String, dynamic> toMap() =>
+      {'modelUrl': _modelUrl, 'isInitialized': _isInitialized}.withoutNulls;
 
   @override
   Map<String, dynamic> toSerializableMap() => {
-        'modelUrl': serializeParam(
-          _modelUrl,
-          ParamType.String,
-        ),
-        'isInitialized': serializeParam(
-          _isInitialized,
-          ParamType.bool,
-        ),
-      }.withoutNulls;
+    'modelUrl': serializeParam(_modelUrl, ParamType.String),
+    'isInitialized': serializeParam(_isInitialized, ParamType.bool),
+  }.withoutNulls;
 
   static EmbeddingConfigStruct fromSerializableMap(Map<String, dynamic> data) =>
       EmbeddingConfigStruct(
-        modelUrl: deserializeParam(
-          data['modelUrl'],
-          ParamType.String,
-          false,
-        ),
+        modelUrl: deserializeParam(data['modelUrl'], ParamType.String, false),
         isInitialized: deserializeParam(
           data['isInitialized'],
           ParamType.bool,
@@ -84,8 +70,4 @@ class EmbeddingConfigStruct extends BaseStruct {
 EmbeddingConfigStruct createEmbeddingConfigStruct({
   String? modelUrl,
   bool? isInitialized,
-}) =>
-    EmbeddingConfigStruct(
-      modelUrl: modelUrl,
-      isInitialized: isInitialized,
-    );
+}) => EmbeddingConfigStruct(modelUrl: modelUrl, isInitialized: isInitialized);

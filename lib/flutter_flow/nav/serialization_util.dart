@@ -18,14 +18,14 @@ String dateTimeRangeToString(DateTimeRange dateTimeRange) {
 }
 
 String placeToString(FFPlace place) => jsonEncode({
-      'latLng': place.latLng.serialize(),
-      'name': place.name,
-      'address': place.address,
-      'city': place.city,
-      'state': place.state,
-      'country': place.country,
-      'zipCode': place.zipCode,
-    });
+  'latLng': place.latLng.serialize(),
+  'name': place.name,
+  'address': place.address,
+  'city': place.city,
+  'state': place.state,
+  'country': place.country,
+  'zipCode': place.zipCode,
+});
 
 String uploadedFileToString(FFUploadedFile uploadedFile) =>
     uploadedFile.serialize();
@@ -179,12 +179,14 @@ dynamic deserializeParam<T>(
       return paramValues
           .where((p) => p is String)
           .map((p) => p as String)
-          .map((p) => deserializeParam<T>(
-                p,
-                paramType,
-                false,
-                structBuilder: structBuilder,
-              ))
+          .map(
+            (p) => deserializeParam<T>(
+              p,
+              paramType,
+              false,
+              structBuilder: structBuilder,
+            ),
+          )
           .where((p) => p != null)
           .map((p) => p! as T)
           .toList();

@@ -57,28 +57,38 @@ class _GenerateEmbeddingsWidgetState extends State<GenerateEmbeddingsWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
+
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+
           automaticallyImplyLeading: false,
+
           title: Text(
             'Generate Embeddings',
+
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.interTight(
-                    fontWeight:
-                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
-                    fontStyle:
-                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
-                  ),
-                  letterSpacing: 0.0,
-                  fontWeight:
-                      FlutterFlowTheme.of(context).headlineMedium.fontWeight,
-                  fontStyle:
-                      FlutterFlowTheme.of(context).headlineMedium.fontStyle,
-                ),
+              font: GoogleFonts.interTight(
+                fontWeight: FlutterFlowTheme.of(
+                  context,
+                ).headlineMedium.fontWeight,
+                fontStyle: FlutterFlowTheme.of(
+                  context,
+                ).headlineMedium.fontStyle,
+              ),
+
+              letterSpacing: 0.0,
+              fontWeight: FlutterFlowTheme.of(
+                context,
+              ).headlineMedium.fontWeight,
+              fontStyle: FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+            ),
           ),
           actions: [],
+
           centerTitle: false,
+
           elevation: 2.0,
         ),
         body: SafeArea(
@@ -86,49 +96,60 @@ class _GenerateEmbeddingsWidgetState extends State<GenerateEmbeddingsWidget> {
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
+
               children: [
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                   child: Text(
                     'Add documents to your vector database collection. Each entry represents a document that can be searched and analyzed.',
+
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          font: GoogleFonts.inter(
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontStyle,
-                          ),
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                          letterSpacing: 0.0,
-                          fontWeight: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .fontWeight,
-                          fontStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                        ),
+                      font: GoogleFonts.inter(
+                        fontWeight: FlutterFlowTheme.of(
+                          context,
+                        ).bodyMedium.fontWeight,
+                        fontStyle: FlutterFlowTheme.of(
+                          context,
+                        ).bodyMedium.fontStyle,
+                      ),
+
+                      color: FlutterFlowTheme.of(context).secondaryText,
+
+                      letterSpacing: 0.0,
+                      fontWeight: FlutterFlowTheme.of(
+                        context,
+                      ).bodyMedium.fontWeight,
+                      fontStyle: FlutterFlowTheme.of(
+                        context,
+                      ).bodyMedium.fontStyle,
+                    ),
                   ),
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                   child: Container(
                     width: double.infinity,
+
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
+
                       borderRadius: BorderRadius.circular(12.0),
                     ),
+
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
+
                       children: [
                         Builder(
                           builder: (context) {
-                            final documents =
-                                FFAppState().documentsToIndex.toList();
+                            final documents = FFAppState().documentsToIndex
+                                .toList();
 
                             return ListView.separated(
                               padding: EdgeInsets.zero,
+
                               primary: false,
+
                               shrinkWrap: true,
                               scrollDirection: Axis.vertical,
                               itemCount: documents.length,
@@ -138,25 +159,36 @@ class _GenerateEmbeddingsWidgetState extends State<GenerateEmbeddingsWidget> {
                                 final documentsItem = documents[documentsIndex];
                                 return Container(
                                   width: double.infinity,
+
                                   decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
+                                    color: FlutterFlowTheme.of(
+                                      context,
+                                    ).primaryBackground,
+
                                     borderRadius: BorderRadius.circular(8.0),
+
                                     border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .alternate,
+                                      color: FlutterFlowTheme.of(
+                                        context,
+                                      ).alternate,
                                       width: 1.0,
                                     ),
                                   ),
+
                                   child: Padding(
                                     padding: EdgeInsets.all(12.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
+
                                       children: [
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 12.0, 0.0),
+                                                12.0,
+                                                0.0,
+                                                12.0,
+                                                0.0,
+                                              ),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -166,50 +198,61 @@ class _GenerateEmbeddingsWidgetState extends State<GenerateEmbeddingsWidget> {
                                             children: [
                                               Text(
                                                 'Document ${documentsIndex.toString()}',
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .labelSmall
-                                                    .override(
+
+                                                style:
+                                                    FlutterFlowTheme.of(
+                                                      context,
+                                                    ).labelSmall.override(
                                                       font: GoogleFonts.inter(
                                                         fontWeight:
                                                             FontWeight.w500,
                                                         fontStyle:
                                                             FlutterFlowTheme.of(
-                                                                    context)
+                                                                  context,
+                                                                )
                                                                 .labelSmall
                                                                 .fontStyle,
                                                       ),
+
                                                       color:
                                                           FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
+                                                            context,
+                                                          ).primary,
+
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w500,
                                                       fontStyle:
                                                           FlutterFlowTheme.of(
-                                                                  context)
+                                                                context,
+                                                              )
                                                               .labelSmall
                                                               .fontStyle,
                                                     ),
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                  0.0,
+                                                  0.0,
+                                                ),
                                                 child: FlutterFlowIconButton(
                                                   borderRadius: 12.0,
+
                                                   buttonSize: 24.0,
+
                                                   icon: Icon(
                                                     Icons.close_rounded,
                                                     color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .error,
+                                                      context,
+                                                    ).error,
                                                     size: 16.0,
                                                   ),
+
                                                   onPressed: () async {
                                                     FFAppState()
                                                         .removeAtIndexFromDocumentsToIndex(
-                                                            documentsIndex);
+                                                          documentsIndex,
+                                                        );
                                                     safeSetState(() {});
                                                   },
                                                 ),
@@ -219,7 +262,8 @@ class _GenerateEmbeddingsWidgetState extends State<GenerateEmbeddingsWidget> {
                                         ),
                                         DemoDocumentWidget(
                                           key: Key(
-                                              'Keyqoh_${documentsIndex}_of_${documents.length}'),
+                                            'Keyqoh_${documentsIndex}_of_${documents.length}',
+                                          ),
                                           input: documentsItem,
                                         ),
                                       ],
@@ -239,6 +283,7 @@ class _GenerateEmbeddingsWidgetState extends State<GenerateEmbeddingsWidget> {
                   child: TextFormField(
                     controller: _model.inputTextFieldTextController,
                     focusNode: _model.inputTextFieldFocusNode,
+
                     onChanged: (_) => EasyDebounce.debounce(
                       '_model.inputTextFieldTextController',
                       Duration(milliseconds: 0),
@@ -246,7 +291,8 @@ class _GenerateEmbeddingsWidgetState extends State<GenerateEmbeddingsWidget> {
                     ),
                     onFieldSubmitted: (_) async {
                       FFAppState().addToDocumentsToIndex(
-                          _model.inputTextFieldTextController.text);
+                        _model.inputTextFieldTextController.text,
+                      );
                       safeSetState(() {});
                       safeSetState(() {
                         _model.inputTextFieldTextController?.clear();
@@ -254,31 +300,35 @@ class _GenerateEmbeddingsWidgetState extends State<GenerateEmbeddingsWidget> {
                     },
                     autofocus: false,
                     enabled: true,
+
                     textCapitalization: TextCapitalization.sentences,
                     textInputAction: TextInputAction.done,
+
                     obscureText: false,
                     decoration: InputDecoration(
                       hintText: 'Add new document and hit enter',
-                      hintStyle: FlutterFlowTheme.of(context)
-                          .bodyMedium
+                      hintStyle: FlutterFlowTheme.of(context).bodyMedium
                           .override(
                             font: GoogleFonts.inter(
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontStyle,
+                              fontWeight: FlutterFlowTheme.of(
+                                context,
+                              ).bodyMedium.fontWeight,
+                              fontStyle: FlutterFlowTheme.of(
+                                context,
+                              ).bodyMedium.fontStyle,
                             ),
+
                             color: FlutterFlowTheme.of(context).secondaryText,
+
                             letterSpacing: 0.0,
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontStyle,
+                            fontWeight: FlutterFlowTheme.of(
+                              context,
+                            ).bodyMedium.fontWeight,
+                            fontStyle: FlutterFlowTheme.of(
+                              context,
+                            ).bodyMedium.fontStyle,
                           ),
+
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: FlutterFlowTheme.of(context).primary,
@@ -308,10 +358,12 @@ class _GenerateEmbeddingsWidgetState extends State<GenerateEmbeddingsWidget> {
                         borderRadius: BorderRadius.circular(12.0),
                       ),
                       filled: true,
-                      fillColor:
-                          FlutterFlowTheme.of(context).secondaryBackground,
-                      suffixIcon: _model
-                              .inputTextFieldTextController!.text.isNotEmpty
+                      fillColor: FlutterFlowTheme.of(
+                        context,
+                      ).secondaryBackground,
+
+                      suffixIcon:
+                          _model.inputTextFieldTextController!.text.isNotEmpty
                           ? InkWell(
                               onTap: () async {
                                 _model.inputTextFieldTextController?.clear();
@@ -326,24 +378,28 @@ class _GenerateEmbeddingsWidgetState extends State<GenerateEmbeddingsWidget> {
                           : null,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          font: GoogleFonts.inter(
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontStyle,
-                          ),
-                          fontSize: 14.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .fontWeight,
-                          fontStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                        ),
+                      font: GoogleFonts.inter(
+                        fontWeight: FlutterFlowTheme.of(
+                          context,
+                        ).bodyMedium.fontWeight,
+                        fontStyle: FlutterFlowTheme.of(
+                          context,
+                        ).bodyMedium.fontStyle,
+                      ),
+
+                      fontSize: 14.0,
+                      letterSpacing: 0.0,
+                      fontWeight: FlutterFlowTheme.of(
+                        context,
+                      ).bodyMedium.fontWeight,
+                      fontStyle: FlutterFlowTheme.of(
+                        context,
+                      ).bodyMedium.fontStyle,
+                    ),
+
                     maxLines: 3,
                     minLines: 1,
+
                     cursorColor: FlutterFlowTheme.of(context).primary,
                     enableInteractiveSelection: true,
                     validator: _model.inputTextFieldTextControllerValidator
@@ -353,8 +409,9 @@ class _GenerateEmbeddingsWidgetState extends State<GenerateEmbeddingsWidget> {
                         TextInputFormatter.withFunction((oldValue, newValue) {
                           return TextEditingValue(
                             selection: newValue.selection,
-                            text: newValue.text
-                                .toCapitalization(TextCapitalization.sentences),
+                            text: newValue.text.toCapitalization(
+                              TextCapitalization.sentences,
+                            ),
                           );
                         }),
                     ],
@@ -364,10 +421,10 @@ class _GenerateEmbeddingsWidgetState extends State<GenerateEmbeddingsWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      _model.vectorDocs =
-                          await actions.processDocumentsToVectors(
-                        FFAppState().documentsToIndex.toList(),
-                      );
+                      _model.vectorDocs = await actions
+                          .processDocumentsToVectors(
+                            FFAppState().documentsToIndex.toList(),
+                          );
                       await actions.saveVectorsToDb(
                         _model.vectorDocs!.toList(),
                       );
@@ -384,8 +441,9 @@ class _GenerateEmbeddingsWidgetState extends State<GenerateEmbeddingsWidget> {
                             ),
                           ),
                           duration: Duration(milliseconds: 4000),
-                          backgroundColor:
-                              FlutterFlowTheme.of(context).secondary,
+                          backgroundColor: FlutterFlowTheme.of(
+                            context,
+                          ).secondary,
                         ),
                       );
 
@@ -394,32 +452,41 @@ class _GenerateEmbeddingsWidgetState extends State<GenerateEmbeddingsWidget> {
                       safeSetState(() {});
                     },
                     text: 'Generate Embeddings',
+
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 50.0,
                       padding: EdgeInsets.all(8.0),
-                      iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+
+                      iconPadding: EdgeInsetsDirectional.fromSTEB(
+                        0.0,
+                        0.0,
+                        0.0,
+                        0.0,
+                      ),
+
                       color: FlutterFlowTheme.of(context).primary,
-                      textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                                font: GoogleFonts.interTight(
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .fontStyle,
-                                ),
-                                color: FlutterFlowTheme.of(context).info,
-                                letterSpacing: 0.0,
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .fontStyle,
-                              ),
+                      textStyle: FlutterFlowTheme.of(context).titleSmall
+                          .override(
+                            font: GoogleFonts.interTight(
+                              fontWeight: FlutterFlowTheme.of(
+                                context,
+                              ).titleSmall.fontWeight,
+                              fontStyle: FlutterFlowTheme.of(
+                                context,
+                              ).titleSmall.fontStyle,
+                            ),
+
+                            color: FlutterFlowTheme.of(context).info,
+
+                            letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(
+                              context,
+                            ).titleSmall.fontWeight,
+                            fontStyle: FlutterFlowTheme.of(
+                              context,
+                            ).titleSmall.fontStyle,
+                          ),
                       elevation: 0.0,
                       borderSide: BorderSide(
                         color: Colors.transparent,
@@ -429,10 +496,7 @@ class _GenerateEmbeddingsWidgetState extends State<GenerateEmbeddingsWidget> {
                     ),
                   ),
                 ),
-              ]
-                  .divide(SizedBox(height: 16.0))
-                  .addToStart(SizedBox(height: 16.0))
-                  .addToEnd(SizedBox(height: 24.0)),
+              ].divide(SizedBox(height: 16.0)).addToStart(SizedBox(height: 16.0)).addToEnd(SizedBox(height: 24.0)),
             ),
           ),
         ),

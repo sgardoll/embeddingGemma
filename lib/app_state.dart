@@ -26,12 +26,14 @@ class FFAppState extends ChangeNotifier {
           prefs.getStringList('ff_documentsToIndex') ?? _documentsToIndex;
     });
     _safeInit(() {
-      _allVectors = prefs
+      _allVectors =
+          prefs
               .getStringList('ff_allVectors')
               ?.map((x) {
                 try {
                   return VectorDocumentStruct.fromSerializableMap(
-                      jsonDecode(x));
+                    jsonDecode(x),
+                  );
                 } catch (e) {
                   print("Can't decode persisted data type. Error: $e.");
                   return null;
@@ -60,7 +62,7 @@ class FFAppState extends ChangeNotifier {
   List<String> _documentsToIndex = [
     'A common phrase is \"The quick brown fox jumps over the lazy dog\"',
     'Machine learning is a subset of AI\"',
-    'Flutter is the best cross-platform framework'
+    'Flutter is the best cross-platform framework',
   ];
   List<String> get documentsToIndex => _documentsToIndex;
   set documentsToIndex(List<String> value) {
@@ -101,25 +103,33 @@ class FFAppState extends ChangeNotifier {
   set allVectors(List<VectorDocumentStruct> value) {
     _allVectors = value;
     prefs.setStringList(
-        'ff_allVectors', value.map((x) => x.serialize()).toList());
+      'ff_allVectors',
+      value.map((x) => x.serialize()).toList(),
+    );
   }
 
   void addToAllVectors(VectorDocumentStruct value) {
     allVectors.add(value);
     prefs.setStringList(
-        'ff_allVectors', _allVectors.map((x) => x.serialize()).toList());
+      'ff_allVectors',
+      _allVectors.map((x) => x.serialize()).toList(),
+    );
   }
 
   void removeFromAllVectors(VectorDocumentStruct value) {
     allVectors.remove(value);
     prefs.setStringList(
-        'ff_allVectors', _allVectors.map((x) => x.serialize()).toList());
+      'ff_allVectors',
+      _allVectors.map((x) => x.serialize()).toList(),
+    );
   }
 
   void removeAtIndexFromAllVectors(int index) {
     allVectors.removeAt(index);
     prefs.setStringList(
-        'ff_allVectors', _allVectors.map((x) => x.serialize()).toList());
+      'ff_allVectors',
+      _allVectors.map((x) => x.serialize()).toList(),
+    );
   }
 
   void updateAllVectorsAtIndex(
@@ -128,13 +138,17 @@ class FFAppState extends ChangeNotifier {
   ) {
     allVectors[index] = updateFn(_allVectors[index]);
     prefs.setStringList(
-        'ff_allVectors', _allVectors.map((x) => x.serialize()).toList());
+      'ff_allVectors',
+      _allVectors.map((x) => x.serialize()).toList(),
+    );
   }
 
   void insertAtIndexInAllVectors(int index, VectorDocumentStruct value) {
     allVectors.insert(index, value);
     prefs.setStringList(
-        'ff_allVectors', _allVectors.map((x) => x.serialize()).toList());
+      'ff_allVectors',
+      _allVectors.map((x) => x.serialize()).toList(),
+    );
   }
 }
 

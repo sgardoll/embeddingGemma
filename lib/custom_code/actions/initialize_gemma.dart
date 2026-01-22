@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 
 import 'index.dart'; // Imports other custom actions
 
+import 'index.dart'; // Imports other custom actions
+
 import 'package:flutter_gemma/flutter_gemma.dart';
 
 /// Initializes the FlutterGemma plugin.

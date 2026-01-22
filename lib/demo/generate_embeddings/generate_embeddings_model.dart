@@ -12,7 +12,7 @@ class GenerateEmbeddingsModel
   FocusNode? inputTextFieldFocusNode;
   TextEditingController? inputTextFieldTextController;
   String? Function(BuildContext, String?)?
-      inputTextFieldTextControllerValidator;
+  inputTextFieldTextControllerValidator;
   // Stores action output result for [Custom Action - processDocumentsToVectors] action in Button widget.
   List<VectorDocumentStruct>? vectorDocs;
 

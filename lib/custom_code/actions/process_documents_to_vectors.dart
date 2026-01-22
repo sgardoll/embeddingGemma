@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'index.dart'; // Imports other custom actions
+
 import '../gemma_embedder_wrapper.dart';
 
 Future<List<VectorDocumentStruct>> processDocumentsToVectors(
@@ -30,8 +32,7 @@ Future<List<VectorDocumentStruct>> processDocumentsToVectors(
         // Create the struct. Assuming 'id' is generated or not needed strictly for this step.
         // You might want to generate a UUID here if your struct requires a unique ID.
         final vectorDoc = VectorDocumentStruct(
-          id: DateTime.now()
-              .millisecondsSinceEpoch
+          id: DateTime.now().millisecondsSinceEpoch
               .toString(), // Simple ID generation
           text: docText,
           vector: embedding,
